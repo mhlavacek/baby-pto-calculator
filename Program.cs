@@ -23,6 +23,7 @@ namespace BabyLeaveCalculator
       {
         if (currentDay.DayOfWeek == DayOfWeek.Sunday)
         {
+          Console.WriteLine(OffToday());
           AdvanceDay();
           continue;
         }
@@ -40,6 +41,9 @@ namespace BabyLeaveCalculator
 
       void AdvanceDay() 
         => currentDay = currentDay.AddDays(1);
+
+      string OffToday()
+        => $"{currentDay.ToString("ddd MMM dd")} - OFF!      PTO: {FormatsPto()}";
 
       string WorkingToday()
         => $"Working on {currentDay.ToString("ddd MMM dd")}: PTO: {FormatsPto()}";
